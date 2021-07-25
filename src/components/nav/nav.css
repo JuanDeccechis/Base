@@ -3,8 +3,16 @@ ul {
 }
 
 .nav { /*horizontal*/
+    width: 100%;
     display: flex;
     justify-content: center;
+    position: fixed;
+    position: -webkit-fixed;
+    top: calc(100% - 57px); /* required */
+    z-index: 1;
+    background-color: var(--background-color);
+    border-top: 3px solid var(--divider);
+    border-bottom: 3px solid var(--divider);
 }
 
 .nav li {
@@ -21,12 +29,13 @@ ul {
     border-bottom: 3px solid green;
 }
 
-.nav{
-    border-top: 3px solid black;
-    border-bottom: 3px solid black;
-}
-
 .nav-text {
     padding-top: 8px;
     padding-bottom: 4px;
+}
+
+@media screen and (min-width: 992px) {
+    .nav {
+        top: 0;
+    }
 }

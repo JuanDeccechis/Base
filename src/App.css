@@ -4,6 +4,7 @@
   --divider: black;
   --container: #555555;
   --text: blue;
+  --desktop-width: 992px;
 }
 
 * {
@@ -137,6 +138,17 @@ a { /* centrado vertical */
   height: 24px;
 }
 
+.example-text {
+  height: 600px;
+  background-color: var(--background-color);
+}
+
+article {
+  height: calc(100vh - 57px);
+  overflow-y: scroll;
+  background-color: var(--theme-page-icon);
+}
+
 @media screen and (min-width: 992px) {
   h1 {
     /* Headline 1 */
@@ -151,5 +163,10 @@ a { /* centrado vertical */
   h3 {
     /* Headline 3 */
     font-size: 48px;
+  }
+
+  article {
+    position: absolute;
+    top: 57px;
   }
 }

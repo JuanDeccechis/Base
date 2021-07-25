@@ -6,7 +6,7 @@ class RecoveryPasswordPage extends Component {
   }
 
   render() {
-    return <div className="container"></div>;
+    return <article className="container"></article>;
   }
 }
 
