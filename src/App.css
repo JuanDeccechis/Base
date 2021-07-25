@@ -1,38 +1,155 @@
-.App {
-  text-align: center;
+#root {
+  --theme-page-icon: #25ae88;
+  --background-color: darkgray;
+  --divider: black;
+  --container: #555555;
+  --text: blue;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+* {
+  padding: 0;
+  margin: 0;
+  font-family: Roboto;
+  font-style: normal;
+  font-weight: 300;
+  position: relative;
+    /* Body 1 */
+    font-weight: normal;
+    font-size: 16px;
+    line-height: 24px;
+    letter-spacing: 0.5px;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
+h1 {
+  font-size: 64px;
+  line-height: 112px;
+  letter-spacing: -1.5px;
+}
+
+h2 {
+  /* Headline 2 */
+  font-size: 48px;
+  line-height: 72px;
+  /* identical to box height, or 150% */
+
+  letter-spacing: -0.5px;
+}
+
+h3 {
+  font-weight: normal;
+  font-size: 40px;
+  line-height: 56px;
+}
+
+h4 {
+  /* Headline 4 */
+  font-weight: normal;
+  font-size: 34px;
+  line-height: 36px;
+}
+
+h5 {
+  /* Headline 5 */
+  font-weight: normal;
+  font-size: 24px;
+  line-height: 24px;
+  letter-spacing: 0.18px;
+}
+
+h6 {
+  /* Headline 6 */
+  font-weight: 500;
+  font-size: 20px;
+  line-height: 24px;
+  letter-spacing: 0.15px;
+}
+
+.subtitle1 {
+  /* Subtitle 1 */
+  font-weight: normal;
+  font-size: 16px;
+  line-height: 24px;
+  letter-spacing: 0.15px;
+}
+
+.body1 {
+  /* Body 1 */
+  font-weight: normal;
+  font-size: 16px;
+  line-height: 24px;
+  letter-spacing: 0.5px;
+}
+
+.subtitle2 {
+  /* Subtitle 2 */
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 24px;
+  /* identical to box height, or 171% */
+
+  letter-spacing: 0.1px;
+}
+
+.body2 {
+  /* Body 2 */
+  font-weight: normal;
+  font-size: 14px;
+  line-height: 20px;
+  letter-spacing: 0.25px;
+}
+
+.button {
+  /* Button */
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 16px;
+  letter-spacing: 1.25px;
+}
+
+.label {
+  /* Overline */
+  font-weight: 500;
+  font-size: 10px;
+  line-height: 16px;
+  letter-spacing: 1.5px;
+}
+
+.link {
+  /* Link */
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 16px;
+  text-align: right;
+  letter-spacing: 1.25px;
+  text-decoration: none;
+  font-weight: bold;
+  text-transform: capitalize;
+  color: var(--text);
+}
+
+a { /* centrado vertical */
+  margin: auto;
+}
+
+.icon {
+  margin: 0 12px;
+  width: 24px;
+  height: 24px;
+}
+
+@media screen and (min-width: 992px) {
+  h1 {
+    /* Headline 1 */
+    font-size: 96px;
   }
-}
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
-
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+  h2 {
+    /* Headline 2 */
+    font-size: 60px;
   }
-  to {
-    transform: rotate(360deg);
+
+  h3 {
+    /* Headline 3 */
+    font-size: 48px;
   }
 }

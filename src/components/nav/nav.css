@@ -1,0 +1,32 @@
+ul {
+    padding: 0;
+}
+
+.nav { /*horizontal*/
+    display: flex;
+    justify-content: center;
+}
+
+.nav li {
+    margin: 10px;
+    font-weight: bold;
+    cursor: pointer;
+    list-style-type: none;
+    display: flex;
+    align-items: center;
+}
+
+.link.active {
+    color: green;
+    border-bottom: 3px solid green;
+}
+
+.nav{
+    border-top: 3px solid black;
+    border-bottom: 3px solid black;
+}
+
+.nav-text {
+    padding-top: 8px;
+    padding-bottom: 4px;
+}
