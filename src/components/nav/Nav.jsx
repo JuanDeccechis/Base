@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { NavLink } from "react-router-dom";
+import Search from '../search/Search';
 import './nav.css';
 import HelpIcon from '@material-ui/icons/Help';
 import AccountCircleIcon from '@material-ui/icons/AccountCircle';
@@ -10,6 +11,7 @@ class Nav extends Component {
   }
 
   render(){
+      console.log(this.props.isMobile);
       return(
         <ul className="nav">
             <li>
@@ -21,6 +23,11 @@ class Nav extends Component {
             <li>
                 <NavLink to="/login" className="link" activeClassName="active"> <AccountCircleIcon className="icon" /> </NavLink>
             </li>
+            {!this.props.isMobile && 
+                <li className="search-bar">
+                    <Search />
+                </li>
+            }
         </ul>
       )
   }

@@ -34,6 +34,10 @@ ul {
     padding-bottom: 4px;
 }
 
+.search-bar {
+    width: 252px;
+}
+
 @media screen and (min-width: 992px) {
     .nav {
         top: 0;

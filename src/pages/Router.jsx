@@ -31,7 +31,7 @@ class Router extends Component {
     return (
       <div className="container">
         <BrowserRouter basename="/Base">
-          <Nav />
+          <Nav isMobile={this.state.width >= 992 ? false : true}/>
           <Switch>
             <Route exact path="/" component={HomePage}></Route>
             <Route path="/login" component={LoginPage}></Route>

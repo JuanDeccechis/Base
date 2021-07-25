@@ -145,7 +145,7 @@ a { /* centrado vertical */
 
 article {
   height: calc(100vh - 57px);
-  overflow-y: scroll;
+  overflow-y : auto; /* show scrollbar only when need it*/
   background-color: var(--theme-page-icon);
 }
 

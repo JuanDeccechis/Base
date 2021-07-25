@@ -1,0 +1,29 @@
+.search {
+    transition: all 0.5s;
+    width: 24px;
+    height: 24px;
+    background-color: rgb(255, 255, 255);
+    border-radius: 30px;
+    display: flex;
+    flex-direction: row;
+}
+
+.search:hover {
+    width: 100%;
+}
+
+.container-input-search {
+    width: calc(100% - 24px);
+    transition: all 1.0s;
+    padding-left: 0;
+    overflow-x: hidden;
+    height: 100%;
+}
+
+.search:hover .container-input-search {
+    padding-left: 6px;
+}
+
+.input-search {
+    height: calc(100% - 8px);
+}
