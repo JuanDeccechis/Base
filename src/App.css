@@ -5,6 +5,8 @@
   --container: #555555;
   --text: blue;
   --desktop-width: 992px;
+  --error: #dc3545;
+  --ok: #28a745;
 }
 
 * {
@@ -138,15 +140,31 @@ a { /* centrado vertical */
   height: 24px;
 }
 
+.icon-color{
+  color: var(--theme-page-icon);
+}
+
+.input-icons svg {
+  position: absolute;
+  top: calc(50% - 12px); /** lo posiciono en el 50% - la mitad del alto del icono*/
+  z-index: 1;
+}
+
+.input-icons svg.right {
+  right: 2px;
+}
+
 .example-text {
   height: 600px;
   background-color: var(--background-color);
 }
 
 article {
-  height: calc(100vh - 57px);
+  height: calc(100vh - 56px);
   overflow-y : auto; /* show scrollbar only when need it*/
-  background-color: var(--theme-page-icon);
+  background-color: var(--background-color);
+  padding: 0 2%;
+  width: 96%;
 }
 
 @media screen and (min-width: 992px) {
@@ -167,6 +185,6 @@ article {
 
   article {
     position: absolute;
-    top: 57px;
+    top: 56px;
   }
 }

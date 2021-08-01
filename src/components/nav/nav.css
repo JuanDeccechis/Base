@@ -25,8 +25,8 @@ ul {
 }
 
 .link.active {
-    color: green;
-    border-bottom: 3px solid green;
+    color: var(--ok);
+    border-bottom: 3px solid var(--ok);
 }
 
 .nav-text {

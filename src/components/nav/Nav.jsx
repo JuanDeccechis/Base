@@ -11,7 +11,6 @@ class Nav extends Component {
   }
 
   render(){
-      console.log(this.props.isMobile);
       return(
         <ul className="nav">
             <li>
