@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { NavLink } from "react-router-dom";
 import Input from "../input/Input";
+import InputFieldSet from "../input/InputFieldSet";
 import "../login/login.css";
 import AccountCircleIcon from "@material-ui/icons/AccountCircle";
 import AlternateEmailIcon from '@material-ui/icons/AlternateEmail';
@@ -41,11 +42,14 @@ class Register extends Component {
         <Input name={"usuario"} minLength="0" maxLength="20" type="text">
           <AccountCircleIcon className={`icon icon-color`} />
         </Input>
-        <Input name={"email"} minLength="0" maxLength="20" type="mail">
+{/*        <Input name={"email"} minLength="0" maxLength="20" type="mail">
           <AlternateEmailIcon className={`icon icon-color`} />
-        </Input>
+    </Input>*/}
+    <InputFieldSet name={"email"} minLength="0" maxLength="20" type="mail">
+          <AlternateEmailIcon className={`icon icon-color`} />
+    </InputFieldSet>
         Tu contraseña deberá tener como mínimo 8 caracteres, una minúscula, una mayúscula y un número.
-        <Input
+        <InputFieldSet
           name={"contraseña"}
           minLength="8"
           maxLength="20"
@@ -63,7 +67,7 @@ class Register extends Component {
               onClick={this.handleChangeVisibilityPassword}
             />
           )}
-        </Input>
+        </InputFieldSet>
 
         
         <div className="espaciado">

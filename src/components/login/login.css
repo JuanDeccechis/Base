@@ -9,9 +9,12 @@
 }*/
 
 .input-icons svg.with-error {
-    top: calc(50% - 24px); /** lo subo 10px porque en el error el alto varia 20px **/
+    top: calc(50% - 24px); /** lo subo 12px porque en el error el alto varia 24px **/
 }
 
+.input-icons svg.with-error.with-fieldset {
+    top: calc(50% - 34px); /** lo subo 22px porque en el error el alto varia 45px **/
+}
 
 .input-with-padding{
     width:  calc(100% - 100px); /* resto el padding y border*/
@@ -62,4 +65,23 @@
 .espaciado{
     margin-top: 16px;
     margin-bottom: 8px;
+}
+
+fieldset{
+    height: 100px;
+}
+
+fieldset.error{
+    height: 135px;
+}
+
+.centered{
+    position: relative;
+    width: 90%;
+    height: 90%;
+    margin: auto;
+}
+
+.centered.error{
+    height: 110px;
 }

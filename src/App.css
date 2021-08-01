@@ -7,6 +7,15 @@
   --desktop-width: 992px;
   --error: #dc3545;
   --ok: #28a745;
+  height: 100vh;
+}
+
+.app {
+  height: 100%;
+}
+
+.container {
+  height: 100%;
 }
 
 * {
@@ -159,8 +168,8 @@ a { /* centrado vertical */
   background-color: var(--background-color);
 }
 
-article {
-  height: calc(100vh - 56px);
+article.container {
+  height: calc(100% - 57px);
   overflow-y : auto; /* show scrollbar only when need it*/
   background-color: var(--background-color);
   padding: 0 2%;

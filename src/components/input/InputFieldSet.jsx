@@ -1,15 +1,18 @@
 import React, { Component } from "react";
 
-class Input extends Component {
+class InputFieldSet extends Component {
   constructor(props) {
     super(props);
     this.state = {
         value: '',
       error: '',
+      valid: '',
+      showFieldset: false,
     };
     this.handleKeyPress = this.handleKeyPress.bind(this);
     this.handleChangeInput = this.handleChangeInput.bind(this);
     this.validateInput = this.validateInput.bind(this);
+    this.handleBlur = this.handleBlur.bind(this);
   }
 
   handleChangeInput(event) {
@@ -29,9 +32,18 @@ class Input extends Component {
     }
   }
 
+  handleBlur(event) {
+      if (!event.target.value) {
+          this.setState({showFieldset: false});
+      }
+      else  {
+        this.setState({showFieldset: true});
+      }
+    this.validateInput(event);    
+  }
+
   validateInput(event) {
       const { hasError } = this.props;
-      console.log(hasError);
     let input = event.target;
     let name = event.target.name;
     let errorMessage = null;
@@ -51,18 +63,17 @@ class Input extends Component {
       default:
         break;
     }
-
-    this.setState({ error: errorMessage });
+    this.setState({ error: errorMessage, valid: !errorMessage });
   }
 
   render() {
-    const { visibilityPassword, error } = this.state;
+    const { visibilityPassword, error, valid, showFieldset } = this.state;
     const { name, minLength, maxLength, type } = this.props;
     let childrenWithExtraProp = [];
     if (this.props.children) {
         childrenWithExtraProp = React.Children.map(this.props.children, child => {
             return React.cloneElement(child, {
-                className: `${child.props.className} ${error ? "with-error error-text" : ''}`
+                className: `${child.props.className} ${error ? "with-error error-text" : ''} ${showFieldset ? "with-fieldset" : ''}`
             });
           });
     }
@@ -71,14 +82,22 @@ class Input extends Component {
     }
     return (
       <div className="input-icons">
-          {this.props.children && 
+
+        {showFieldset ?
+        <fieldset aria-hidden="true" 
+        className={`jss5 MuiOutlinedInput-notchedOutline ${
+            error && "error"} ${valid && "valid"}`}>
+                                <legend className="jss7">
+                                    <span>{`${name}*`}</span>
+                                </legend>
+                                <div className= {`centered ${error && "error"}`}>
+                                {this.props.children && 
         childrenWithExtraProp[0] }
         <input
           id={name}
           name={name}
           className={`input-with-padding ${
-            error ? "error" : "valid"
-          }`}
+            error && "error"} ${valid && "valid"}`}
           type={type}
           placeholder={`${name}*`}
           required
@@ -87,15 +106,42 @@ class Input extends Component {
           value={this.state.value}
           onChange={this.handleChangeInput}
           onKeyPress={this.handleKeyPress}
-          onBlur={this.validateInput}
+          onBlur={this.handleBlur}
         />
         {childrenWithExtraProp[1] }
         {error && (
           <span className="error-text">{error}</span>
         )}
+        </div>
+        </fieldset>
+        :
+        <div className="centered">
+                      {this.props.children && 
+        childrenWithExtraProp[0] }
+        <input
+          id={name}
+          name={name}
+          className={`input-with-padding ${
+            error && "error"} ${valid && "valid"}`}
+          type={type}
+          placeholder={`${name}*`}
+          required
+          minLength={minLength}
+          maxLength={maxLength}
+          value={this.state.value}
+          onChange={this.handleChangeInput}
+          onKeyPress={this.handleKeyPress}
+          onBlur={this.handleBlur}
+        />
+        {childrenWithExtraProp[1] }
+        {error && (
+          <span className="error-text">{error}</span>
+        )}
+        </div>
+  }
       </div>
     );
   }
 }
 
-export default Input;
+export default InputFieldSet;
