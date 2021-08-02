@@ -34,12 +34,12 @@ class Router extends Component {
           <Nav isMobile={this.state.width >= 992 ? false : true}/>
           <Switch>
             <Route exact path="/" component={HomePage}></Route>
-            <Route path="/login" component={LoginPage}></Route>
-            <Route path="/register" component={RegisterPage}></Route>
+            <Route path="/login/register" component={RegisterPage}></Route>
             <Route
-              path="/recoveryPassword"
+              path="/login/recoveryPassword"
               component={RecoveryPasswordPage}
             ></Route>
+            <Route path="/login" component={LoginPage}></Route>
           </Switch>
         </BrowserRouter>
       </div>

@@ -9,79 +9,138 @@
 }*/
 
 .input-icons svg.with-error {
-    top: calc(50% - 24px); /** lo subo 12px porque en el error el alto varia 24px **/
+  top: calc(
+    50% - 24px
+  ); /** lo subo 12px porque en el error el alto varia 24px **/
 }
 
 .input-icons svg.with-error.with-fieldset {
-    top: calc(50% - 34px); /** lo subo 22px porque en el error el alto varia 45px **/
+  top: calc(
+    50% - 34.5px
+  ); /** lo subo 22px porque en el error el alto varia 45px **/
 }
 
-.input-with-padding{
-    width:  calc(100% - 100px); /* resto el padding y border*/
-    border-radius: 4px;
-    padding: 18.5px 48px; /*padding izq para el icono y su margen*/
-    border: 2px solid;
+.input-with-padding {
+  width: calc(100% - 100px); /* resto el padding y border*/
+  border-radius: 4px;
+  padding: 18px 48px; /*padding izq para el icono y su margen*/
+  border: 2px solid;
 }
 
-.login-page-global-container{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    width: 100%;
+.login-page-global-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
 }
 
-.form-container{
-    width: 100%;
-    font-family: "Roboto", "Helvetica", "Arial", sans-serif;
-    font-weight: 400;
-    line-height: 1.43;
+.form-container {
+  width: 100%;
+  font-family: "Roboto", "Helvetica", "Arial", sans-serif;
+  font-weight: 400;
+  line-height: 1.43;
 }
 
-.input-icons{
-    width: 100%;
-    margin-top: 16px;
-    margin-bottom: 8px;
-    position: relative;
+.input-icons {
+  width: 100%;
+  margin-top: 16px;
+  margin-bottom: 8px;
+  position: relative;
 }
 
-.with-error.error-text, .error-text, .error{
-    color: var(--error);
+.with-error.error-text,
+.error-text,
+.error {
+  color: var(--error);
 }
 
-.valid-text, .valid{
-    color: var(--ok);
+.valid-text,
+.valid {
+  color: var(--ok);
 }
 
-.principal{
-    width: 100%;
+.principal {
+  width: 100%;
 }
 
-.login-links-container{
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
+.login-links-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
 }
 
-.espaciado{
-    margin-top: 16px;
-    margin-bottom: 8px;
+.login-register-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
 }
 
-fieldset{
-    height: 100px;
+.espaciado {
+  margin-top: 16px;
+  margin-bottom: 8px;
 }
 
-fieldset.error{
-    height: 135px;
+fieldset {
+  height: 100px;
 }
 
-.centered{
-    position: relative;
-    width: 90%;
-    height: 90%;
-    margin: auto;
+fieldset.error {
+  height: 135px;
 }
 
-.centered.error{
-    height: 110px;
+.centered {
+  position: relative;
+  width: 90%;
+  height: 90%;
+  margin: auto;
+}
+
+.centered.error {
+  height: 110px;
+}
+
+.forgot-password {
+  margin: 0;
+  top: 1px;
+  height: 24px;
+}
+
+.login-form {
+  width: calc(100% - 20px);
+  padding: 10px; /*mayor padding para container*/
+  background-color: var(--container);
+  border-radius: 30px; /*mayor border-radius para container*/
+  /*background: linear-gradient(#3f87a6, #ebf8e1, #f69d3c, #561423);*/
+  margin: auto;
+}
+
+.checkbox-container {
+  position: relative;
+  height: 26px;
+  width: 130px;
+  cursor: pointer;
+}
+
+.checkbox-circle {
+  display: inline-block;
+  height: 24px;
+  width: 24px;
+  background-color: white;
+  border: 1px solid black;
+  border-radius: 50%;
+}
+
+.checkbox-label {
+  position: absolute;
+  left: 30px;
+  cursor: pointer;
+  top: 1px;
+  height: 24px;
+}
+
+@media screen and (min-width: 992px) {
+  .login-form {
+    width: 60%;
+    padding: 20px; /*mayor padding para container*/
+  }
 }

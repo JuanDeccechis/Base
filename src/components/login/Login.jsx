@@ -6,6 +6,7 @@ import AccountCircleIcon from "@material-ui/icons/AccountCircle";
 import LockOpenIcon from "@material-ui/icons/LockOpen";
 import VisibilityIcon from "@material-ui/icons/Visibility";
 import VisibilityOffIcon from "@material-ui/icons/VisibilityOff";
+import CheckCircleIcon from "@material-ui/icons/CheckCircle";
 
 class Login extends Component {
   constructor(props) {
@@ -13,6 +14,7 @@ class Login extends Component {
     this.state = {
       visibilityPassword: false,
       firstTry: true,
+      remember: false,
     };
     this.handleChangeVisibilityPassword =
       this.handleChangeVisibilityPassword.bind(this);
@@ -33,15 +35,17 @@ class Login extends Component {
   }
 
   render() {
-    const { visibilityPassword, firstTry } = this.state;
+    const { visibilityPassword, firstTry, remember } = this.state;
 
     return (
       <form
         action=""
         method="post"
-        className="form-container"
+        className="form-container login-form"
         onSubmit={this.handleSubmit}
       >
+        {" "}
+        en web que sea un card 3d
         <Input name={"usuario"} minLength="0" maxLength="20" type="text">
           <AccountCircleIcon className={`icon icon-color`} />
         </Input>
@@ -63,29 +67,41 @@ class Login extends Component {
             />
           )}
         </Input>
-
-        <input
-          type="checkbox"
-          id="recordar"
-          name="recordar"
-          className="espaciado"
-          value={false}
-        />
-        <label htmlFor="recordar"> Remember me</label>
-
+        <div className="espaciado login-links-container">
+        <div
+          class="checkbox-container"
+          onClick={() => {
+            this.setState({ remember: !this.state.remember });
+          }}
+        >
+          {remember ? (
+            <CheckCircleIcon className={`icon-color`} />
+          ) : (
+            <div className="checkbox-circle" />
+          )}
+          <label for="checkbox" className="checkbox-label">
+            Recuerdame
+          </label>
+        </div>
+        <div>
+        <NavLink
+          to="/login/recoveryPassword"
+          className="forgot-password"
+          activeClassName=""
+        >
+          <span>Olvidé mi clave</span>
+        </NavLink>
+        </div>
+        </div>
         <div className="espaciado">
           <NavLink to="/" activeClassName="" onClick={this.handleSubmit}>
             <button className="principal">Acceder</button>
           </NavLink>
         </div>
-
-        <div className="login-links-container espaciado">
-          <NavLink to="/recoveryPassword" activeClassName="">
-            <span>Olvidé mi clave</span>
-          </NavLink>
+        <div className="login-register-container espaciado">
           <div>
             <span>No tenés cuenta? </span>
-            <NavLink to="/register" activeClassName="">
+            <NavLink to="/login/register" activeClassName="">
               <span>Registrate</span>
             </NavLink>
           </div>

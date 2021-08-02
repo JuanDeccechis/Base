@@ -32,6 +32,7 @@ class Recover extends Component {
         className="form-container"
         onSubmit={this.handleSubmit}
       >
+          Te enviaremos un email con una nueva contraseña para que puedas ingresar.
         <Input name={"email"} minLength="0" maxLength="20" type="mail">
           <AlternateEmailIcon className={`icon icon-color`} />
         </Input>
