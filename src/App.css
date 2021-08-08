@@ -201,6 +201,17 @@ button.principal:hover {
   letter-spacing: 1px;
 }
 
+.term-conditions-container{
+  margin: 20px 10px 0 10px;
+  max-height: 420px;
+  overflow-y: auto; /* show scrollbar only when need it*/
+}
+
+.espaciado .term-conditions-title{
+  text-align: center;
+  font-weight: bold;
+}
+
 @media screen and (min-width: 992px) {
   h1 {
     /* Headline 1 */

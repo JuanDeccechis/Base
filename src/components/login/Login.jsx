@@ -58,6 +58,7 @@ class Login extends Component {
         className="form-container login-form"
         onSubmit={this.handleSubmitForm}
       >
+        <div className="login-form-container">
         en web que sea un card 3d
         <Input name={"usuario"} minLength="0" maxLength="20" type="text">
           <AccountCircleIcon className={`icon icon-color`} />
@@ -111,11 +112,12 @@ class Login extends Component {
         </div>
         <div className="login-register-container espaciado">
           <div>
-            <span>No tenés cuenta? </span>
-            <NavLink to="/login/register" activeClassName="">
-              <span>Registrate</span>
+            <span>No tengo cuenta? </span>
+            <NavLink to="/login/register/step1" activeClassName="">
+              <span>Registrarme</span>
             </NavLink>
           </div>
+        </div>
         </div>
       </form>
     );

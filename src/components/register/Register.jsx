@@ -32,7 +32,7 @@ class Register extends Component {
   }
 
   changePath() {
-    let path = `/`;
+    let path = `/login/register/step2`;
     this.props.history.push(path);
   }
 
@@ -49,7 +49,6 @@ class Register extends Component {
 
   render() {
     const { visibilityPassword } = this.state;
-
     return (
       <form
         action=""
@@ -57,6 +56,7 @@ class Register extends Component {
         className="form-container login-form"
         onSubmit={this.handleSubmitForm}
       >
+        <div className="login-form-container">
         <Input name={"usuario"} minLength="0" maxLength="20" type="text">
           <AccountCircleIcon className={`icon icon-color`} />
         </Input>
@@ -93,13 +93,14 @@ class Register extends Component {
 
         
         <div className="espaciado">
-          <Button className="principal" handleClick={this.handleSubmit} text="Crear cuenta"/>
+          <Button className="principal" handleClick={this.handleSubmit} text="Continuar"/>
         </div>
 
         <div className="login-links-container espaciado">
           <NavLink to="/login" activeClassName="">
             <span>Ya tengo cuenta</span>
           </NavLink>
+        </div>
         </div>
       </form>
     );

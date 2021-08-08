@@ -1,0 +1,23 @@
+.progressbar-complete{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+}
+
+.container-progress{
+    height: 24px;
+    border-radius: 5px;
+    position: relative;
+    border: 2px solid black;
+    margin: 5px;
+}
+
+.progressbar{
+    position: absolute;
+    background-color: var(--ok);
+    left: 0;
+    top: 0;
+    height: 100%;
+    border-radius: 2px;
+}

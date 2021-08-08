@@ -42,6 +42,7 @@ class Recover extends Component {
         className="form-container login-form"
         onSubmit={this.handleSubmit}
       >
+        <div className="login-form-container">
           <span>Te enviaremos un email con una nueva contraseña para que puedas ingresar.</span>
         <Input name={"email"} minLength="0" maxLength="20" type="mail">
           <AlternateEmailIcon className={`icon icon-color`} />
@@ -59,6 +60,7 @@ class Recover extends Component {
           <NavLink to="/login" activeClassName="">
             <span>Iniciar sesión</span>
           </NavLink>
+        </div>
         </div>
       </form>
     );
