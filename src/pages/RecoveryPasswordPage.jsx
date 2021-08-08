@@ -11,7 +11,7 @@ class RecoveryPasswordPage extends Component {
       <article className="container">
       <div className="recover-page-global-container">
         <h1>Recuperar mi clave</h1>
-        <Recover />
+        <Recover history={this.props.history} location={this.props.location} />
       </div>
     </article>
     );

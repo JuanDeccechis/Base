@@ -18,7 +18,6 @@ class InputFieldSet extends Component {
   handleChangeInput(event) {
     const target = event.target;
     const value = target.type === "checkbox" ? target.checked : target.value;
-    const name = target.name;
 
     this.setState({
         value: value,
@@ -61,13 +60,14 @@ class InputFieldSet extends Component {
         errorMessage = `Tu ${name} debe contener hasta ${input.maxLength} caracteres.`;
         break;
       default:
+        errorMessage = null;
         break;
     }
     this.setState({ error: errorMessage, valid: !errorMessage });
   }
 
   render() {
-    const { visibilityPassword, error, valid, showFieldset } = this.state;
+    const { error, valid, showFieldset } = this.state;
     const { name, minLength, maxLength, type } = this.props;
     let childrenWithExtraProp = [];
     if (this.props.children) {
@@ -97,7 +97,7 @@ class InputFieldSet extends Component {
           id={name}
           name={name}
           className={`input-with-padding ${
-            error && "error"} ${valid && "valid"}`}
+            error=== null ? "valid" : error ? "error" : ""}`}
           type={type}
           placeholder={`${name}*`}
           required
@@ -122,7 +122,7 @@ class InputFieldSet extends Component {
           id={name}
           name={name}
           className={`input-with-padding ${
-            error && "error"} ${valid && "valid"}`}
+            error=== null ? "valid" : error ? "error" : ""}`}
           type={type}
           placeholder={`${name}*`}
           required

@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { NavLink } from "react-router-dom";
 import Input from "../input/Input";
+import Button from "../button/Button";
 import "./login.css";
 import AccountCircleIcon from "@material-ui/icons/AccountCircle";
 import LockOpenIcon from "@material-ui/icons/LockOpen";
@@ -19,6 +20,7 @@ class Login extends Component {
     this.handleChangeVisibilityPassword =
       this.handleChangeVisibilityPassword.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
+    this.handleSubmitForm = this.handleSubmitForm.bind(this);
   }
 
   handleChangeVisibilityPassword() {
@@ -26,25 +28,36 @@ class Login extends Component {
   }
 
   handleSubmit(event) {
-    const { firstTry } = this.state;
-    console.log("cargando");
-    if (firstTry) {
-      event.preventDefault();
+    if (event){
+    event.preventDefault();
+    event.stopPropagation();
+    }
+    this.changePath();
+    this.setState({ firstTry: false });
+  }
+
+  handleSubmitForm(event){
+    if (event){
+    event.preventDefault();
+    event.stopPropagation();
     }
     this.setState({ firstTry: false });
   }
 
+  changePath() {
+    let path = `/`;
+    this.props.history.push(path);
+  }
+
   render() {
     const { visibilityPassword, firstTry, remember } = this.state;
-
     return (
       <form
         action=""
         method="post"
         className="form-container login-form"
-        onSubmit={this.handleSubmit}
+        onSubmit={this.handleSubmitForm}
       >
-        {" "}
         en web que sea un card 3d
         <Input name={"usuario"} minLength="0" maxLength="20" type="text">
           <AccountCircleIcon className={`icon icon-color`} />
@@ -69,7 +82,7 @@ class Login extends Component {
         </Input>
         <div className="espaciado login-links-container">
         <div
-          class="checkbox-container"
+          className="checkbox-container"
           onClick={() => {
             this.setState({ remember: !this.state.remember });
           }}
@@ -79,7 +92,7 @@ class Login extends Component {
           ) : (
             <div className="checkbox-circle" />
           )}
-          <label for="checkbox" className="checkbox-label">
+          <label htmlFor="checkbox" className="checkbox-label">
             Recuerdame
           </label>
         </div>
@@ -94,9 +107,7 @@ class Login extends Component {
         </div>
         </div>
         <div className="espaciado">
-          <NavLink to="/" activeClassName="" onClick={this.handleSubmit}>
-            <button className="principal">Acceder</button>
-          </NavLink>
+            <Button className="principal" handleClick={this.handleSubmit} text="Acceder" />
         </div>
         <div className="login-register-container espaciado">
           <div>

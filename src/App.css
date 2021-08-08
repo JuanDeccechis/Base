@@ -163,6 +163,10 @@ a { /* centrado vertical */
   z-index: 1;
 }
 
+.input-icons fieldset svg {
+  top: calc(50% - 17px); /** lo posiciono en el 50% - la mitad del alto del icono*/
+}
+
 .input-icons svg.right {
   right: 2px;
 }

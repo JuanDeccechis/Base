@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import { NavLink } from "react-router-dom";
 import Input from "../input/Input";
 import InputFieldSet from "../input/InputFieldSet";
+import Button from "../button/Button";
 import "../login/login.css";
 import AccountCircleIcon from "@material-ui/icons/AccountCircle";
 import AlternateEmailIcon from '@material-ui/icons/AlternateEmail';
@@ -18,15 +19,32 @@ class Register extends Component {
     this.handleChangeVisibilityPassword =
       this.handleChangeVisibilityPassword.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
+    this.changePath = this.changePath.bind(this);
+    this.handleSubmitForm = this.handleSubmitForm.bind(this);
+  }
+
+  handleSubmit(event) {
+    if (event){
+    event.preventDefault();
+    event.stopPropagation();
+    }
+    this.changePath();
+  }
+
+  changePath() {
+    let path = `/`;
+    this.props.history.push(path);
   }
 
   handleChangeVisibilityPassword() {
     this.setState({ visibilityPassword: !this.state.visibilityPassword });
   }
 
-  handleSubmit(event) {
-    console.log("cargando");
-    event.preventDefault();
+  handleSubmitForm(event) {
+    if (event){
+      event.preventDefault();
+      event.stopPropagation();
+    }
   }
 
   render() {
@@ -36,8 +54,8 @@ class Register extends Component {
       <form
         action=""
         method="post"
-        className="form-container"
-        onSubmit={this.handleSubmit}
+        className="form-container login-form"
+        onSubmit={this.handleSubmitForm}
       >
         <Input name={"usuario"} minLength="0" maxLength="20" type="text">
           <AccountCircleIcon className={`icon icon-color`} />
@@ -45,11 +63,15 @@ class Register extends Component {
 {/*        <Input name={"email"} minLength="0" maxLength="20" type="mail">
           <AlternateEmailIcon className={`icon icon-color`} />
     </Input>*/}
-    <InputFieldSet name={"email"} minLength="0" maxLength="20" type="mail">
+    <Input name={"email"} minLength="0" maxLength="20" type="mail">
           <AlternateEmailIcon className={`icon icon-color`} />
-    </InputFieldSet>
-        Tu contraseña deberá tener como mínimo 8 caracteres, una minúscula, una mayúscula y un número.
-        <InputFieldSet
+    </Input>
+    <div className="espaciado"><div className="separacion"></div></div>
+    <div className="espaciado">
+        <span>Tu contraseña deberá tener como mínimo 8 caracteres, una minúscula, una mayúscula y un número.
+        </span>
+        </div>
+        <Input
           name={"contraseña"}
           minLength="8"
           maxLength="20"
@@ -67,13 +89,11 @@ class Register extends Component {
               onClick={this.handleChangeVisibilityPassword}
             />
           )}
-        </InputFieldSet>
+        </Input>
 
         
         <div className="espaciado">
-          <NavLink to="/" activeClassName="">
-            <button className="principal">Registrarme</button>
-          </NavLink>
+          <Button className="principal" handleClick={this.handleSubmit} text="Crear cuenta"/>
         </div>
 
         <div className="login-links-container espaciado">

@@ -10,14 +10,14 @@
 
 .input-icons svg.with-error {
   top: calc(
-    50% - 24px
+    50% - 23px
   ); /** lo subo 12px porque en el error el alto varia 24px **/
 }
 
 .input-icons svg.with-error.with-fieldset {
   top: calc(
-    50% - 34.5px
-  ); /** lo subo 22px porque en el error el alto varia 45px **/
+    50% - 36px
+  ); /** lo subo 24px porque en el error el alto varia 48px 110-62=48 **/
 }
 
 .input-with-padding {
@@ -52,11 +52,13 @@
 .error-text,
 .error {
   color: var(--error);
+  border-color: var(--error);
 }
 
 .valid-text,
 .valid {
   color: var(--ok);
+  border-color: var(--ok);
 }
 
 .principal {
@@ -135,6 +137,10 @@ fieldset.error {
   left: 30px;
   cursor: pointer;
   top: 1px;
+  height: 24px;
+}
+
+.separacion {
   height: 24px;
 }
 

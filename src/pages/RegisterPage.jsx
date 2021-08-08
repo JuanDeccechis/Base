@@ -11,7 +11,7 @@ class RegisterPage extends Component {
       <article className="container">
         <div className="register-page-global-container">
           <h1>Registrarme</h1>
-          <Register />
+          <Register  history={this.props.history} location={this.props.location}/>
         </div>
       </article>
     );

@@ -15,7 +15,6 @@ class Input extends Component {
   handleChangeInput(event) {
     const target = event.target;
     const value = target.type === "checkbox" ? target.checked : target.value;
-    const name = target.name;
 
     this.setState({
         value: value,
@@ -31,7 +30,6 @@ class Input extends Component {
 
   validateInput(event) {
       const { hasError } = this.props;
-      console.log(hasError);
     let input = event.target;
     let name = event.target.name;
     let errorMessage = null;
@@ -49,6 +47,7 @@ class Input extends Component {
         errorMessage = `Tu ${name} debe contener hasta ${input.maxLength} caracteres.`;
         break;
       default:
+        errorMessage = null;
         break;
     }
 
@@ -56,7 +55,7 @@ class Input extends Component {
   }
 
   render() {
-    const { visibilityPassword, error } = this.state;
+    const { error } = this.state;
     const { name, minLength, maxLength, type } = this.props;
     let childrenWithExtraProp = [];
     if (this.props.children) {
@@ -77,7 +76,7 @@ class Input extends Component {
           id={name}
           name={name}
           className={`input-with-padding ${
-            error ? "error" : "valid"
+            error=== null ? "valid" : error ? "error" : ""
           }`}
           type={type}
           placeholder={`${name}*`}
