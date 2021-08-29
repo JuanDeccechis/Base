@@ -11,7 +11,7 @@ class PlansPage extends Component {
       const { history, location } = this.props;
     return (
       <article className="container">
-        <div className="login-page-global-container">
+        <div>
           <h1>Planes</h1>
           <ul>
               <li>
