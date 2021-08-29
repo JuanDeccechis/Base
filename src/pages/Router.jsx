@@ -6,6 +6,7 @@ import RegisterPageStep1 from "./RegisterPageStep1";
 import RegisterPageStep2 from "./RegisterPageStep2";
 import TermAndConditionsPage from "./TermAndConditionsPage";
 import RecoveryPasswordPage from "./RecoveryPasswordPage";
+import PlansPage from "./PlansPage";
 import HomePage from "./HomePage";
 
 class Router extends Component {
@@ -42,6 +43,10 @@ class Router extends Component {
             <Route
               path="/login/recoveryPassword"
               component={RecoveryPasswordPage}
+            ></Route>
+            <Route
+              path="/plans"
+              component={PlansPage}
             ></Route>
             <Route path="/login" component={LoginPage}></Route>
           </Switch>

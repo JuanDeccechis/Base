@@ -56,7 +56,7 @@ class Input extends Component {
 
   render() {
     const { error } = this.state;
-    const { name, minLength, maxLength, type } = this.props;
+    const { placeholder, name, minLength, maxLength, type, className } = this.props;
     let childrenWithExtraProp = [];
     if (this.props.children) {
         childrenWithExtraProp = React.Children.map(this.props.children, child => {
@@ -77,9 +77,9 @@ class Input extends Component {
           name={name}
           className={`input-with-padding ${
             error=== null ? "valid" : error ? "error" : ""
-          }`}
+          } ${className ? className : ''}`}
           type={type}
-          placeholder={`${name}*`}
+          placeholder={`${placeholder ? placeholder : name}*`}
           required
           minLength={minLength}
           maxLength={maxLength}

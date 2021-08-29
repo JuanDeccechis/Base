@@ -59,8 +59,12 @@ class PayCard extends Component {
             <AccountCircleIcon className={`icon icon-color`} />
             </Input>
             <Input
-            name={"contraseña"}
-            type="text"
+            name={"tarjeta"}
+            placeholder="XXXX XXXX XXXX 1234"
+            type="number"
+            minLength={16}
+            maxLength={16}
+            className="creditCard"
             >
                 <PaymentIcon className={`icon icon-color`} />
             </Input>
@@ -88,8 +92,11 @@ class PayCard extends Component {
           <p className="error-text">Debes aceptar los Términos y condiciones para registrarte exitosamente.</p>
           }
             <div className="espaciado">
-                <Button className="principal" handleClick={this.handleSubmit} text="Acceder" />
+                <Button className={`principal`} disabled={!termAccepted} handleClick={this.handleSubmit} text="Acceder" />
             </div>
+            <NavLink to="/plans" activeClassName="">
+                <span>Elegir un plan</span>
+                </NavLink>
             </div>
         </form>
         );

@@ -3,12 +3,13 @@ ul {
 }
 
 .nav { /*horizontal*/
+    height: 56px;
     width: 100%;
     display: flex;
     justify-content: center;
     position: fixed;
     position: -webkit-fixed;
-    top: calc(100% - 54px); /* required */
+    top: calc(100% - 62px); /* required */
     z-index: 1;
     background-color: var(--background-color);
     border-top: 3px solid var(--divider);

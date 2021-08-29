@@ -16,8 +16,15 @@ class Button extends Component {
   }
 
   render(){
+      const { disabled } = this.props;
       return(
-        <button className={this.props.className} onClick={this.handleClickAfterValidations}>{this.props.text}</button>
+        <>
+        {disabled ? 
+          <button disabled className={`${this.props.className} disabled`}>{this.props.text}</button>
+        :
+          <button className={this.props.className} onClick={this.handleClickAfterValidations}>{this.props.text}</button>
+        }
+        </>
       )
   }
 }
