@@ -22,8 +22,17 @@
     cursor: pointer;
 }
 
+.inline{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+
+}
+
 .accordion-title {
     padding: 12px 0; /*para que tenga separacion*/
+    width: calc(100% - 48px);
     font-weight: 700;
     display: flex;
     justify-content: center;
@@ -54,6 +63,18 @@
     transition-duration: 1s;
     transition-timing-function: ease-in;
     transition-property: max-height;
+}
+
+.selectorAccordion{
+    -webkit-transition: -webkit-transform .8s ease-in-out;
+    -ms-transition: -ms-transform .8s ease-in-out;
+    transition: transform .8s ease-in-out;  
+}
+
+.selectorAccordion.muestraInfo{
+    transform:rotate(180deg);
+    -ms-transform:rotate(180deg);
+    -webkit-transform:rotate(180deg);
 }
 
 @media screen and (min-width: 992px) {
