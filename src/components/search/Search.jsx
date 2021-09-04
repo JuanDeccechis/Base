@@ -25,10 +25,10 @@ class Search extends Component {
   render() {
     return (
     <div className="search">
+        <SearchIcon />
         <div className="container-input-search">
             <input type="text" name="search" className="input-search" placeholder="Buscar" value={this.state.search} onChange={this.handleChangeSearch}></input>
         </div>
-        <SearchIcon />
     </div>
     )
   }

@@ -6,6 +6,7 @@
     border-radius: 30px;
     display: flex;
     flex-direction: row;
+    margin: 3px 0 9px 0;
 }
 
 .search:hover {
@@ -27,4 +28,11 @@
 .input-search {
     top: 2px;
     height: calc(100% - 8px);
+    outline: none;
+    border: none;
+}
+
+.input-search:focus{
+    outline: none;
+    border: none;
 }

@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import { NavLink } from "react-router-dom";
 import Search from '../search/Search';
 import './nav.css';
+import HomeIcon from '@material-ui/icons/Home';
 import HelpIcon from '@material-ui/icons/Help';
 import AccountCircleIcon from '@material-ui/icons/AccountCircle';
 
@@ -14,7 +15,7 @@ class Nav extends Component {
       return(
         <ul className="nav">
             <li>
-                <NavLink exact to="/" className="link nav-text" activeClassName="active"> Home </NavLink>
+                <NavLink exact to="/" className="link" /*"link nav-text"*/ activeClassName="active"> <HomeIcon className="icon" /> </NavLink>
             </li>
             <li>
                 <NavLink to="/FAQ" className="link" activeClassName="active"> <HelpIcon className="icon" /> </NavLink>
