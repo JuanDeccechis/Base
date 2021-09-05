@@ -83,7 +83,7 @@ h6 {
 
 .subtitle1 {
   /* Subtitle 1 */
-  font-weight: normal;
+  font-weight: bold;
   font-size: 16px;
   line-height: 24px;
   letter-spacing: 0.15px;
@@ -240,6 +240,17 @@ button.principal:hover:enabled {
   font-weight: bold;
 }
 
+.plans{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
+
+.plans li{
+  flex: 0 0 150px; /*grow, shrink, basis*/
+  list-style-type: none;
+}
+
 @media screen and (min-width: 992px) {
   h1 {
     /* Headline 1 */
@@ -262,5 +273,16 @@ button.principal:hover:enabled {
   article {
     position: absolute;
     top: 62px;
+  }
+
+  .plans{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    flex-wrap: wrap;
+  }
+  
+  .plans li{
+    flex: 0 0 350px; /*grow, shrink, basis*/
   }
 }

@@ -1,0 +1,16 @@
+.card{
+    border: 2px solid var(--divider);
+    border-radius: 4px;
+    background-color: var(--container);
+}
+
+.selectedCard{
+    background-color: var(--theme-page-icon);
+    box-shadow: 0 0 0 3px var(--ok);
+}
+
+.plan-title{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}

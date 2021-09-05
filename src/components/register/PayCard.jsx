@@ -14,7 +14,8 @@ class PayCard extends Component {
     this.state = {
       search: '',
       termAccepted: false,
-      showTextError: false
+      showTextError: false,
+      plan: JSON.parse(localStorage.getItem("plan")),
     }
     this.handleSubmit = this.handleSubmit.bind(this);
     this.changePath = this.changePath.bind(this);
@@ -46,7 +47,7 @@ class PayCard extends Component {
     }
   }
   render() {
-    const { termAccepted, showTextError } = this.state;
+    const { plan, termAccepted, showTextError } = this.state;
     return (
         <form
             action=""
@@ -55,9 +56,13 @@ class PayCard extends Component {
             onSubmit={this.handleSubmitForm}
         >
           <div className="login-form-container">
-            <Input name={"usuario"} minLength="0" maxLength="20" type="text">
+           {/* <Input name={"usuario"} minLength="0" maxLength="20" type="text">
             <AccountCircleIcon className={`icon icon-color`} />
-            </Input>
+    </Input> */}
+              <div className="plan-title">
+                <span className="subtitle1">Plan: {plan.title} </span>
+                <span className="price subtitle1">USD {plan.price}</span>
+              </div>
             <Input
             name={"tarjeta"}
             placeholder="XXXX XXXX XXXX 1234"
