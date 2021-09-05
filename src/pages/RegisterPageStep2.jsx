@@ -22,6 +22,7 @@ class RegisterPageStep2 extends Component {
           <PayCard
             history={this.props.history}
             location={this.props.location}
+            handleLoggin={this.props.handleLoggin}
           />
         </div>
       </article>

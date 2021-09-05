@@ -15,6 +15,7 @@ class Router extends Component {
     super(props);
     this.state = {
       width: window.innerWidth,
+      isLogged: false,
     };
     this.handleResize = this.handleResize.bind(this);
   }
@@ -27,25 +28,31 @@ class Router extends Component {
     window.addEventListener("resize", this.handleResize);
   }
 
+  handleLoggin = () => {
+    localStorage.setItem("isLogged", "true");
+    this.setState({ isLogged : true });
+  }
+
   componentWillUnmount() {
     window.removeEventListener("resize", this.handleResize);
   }
 
   render() {
+    const { isLogged, width } = this.state;
     return (
       <div className="container">
         <BrowserRouter basename="/Base">
-          <Nav isMobile={this.state.width >= 992 ? false : true}/>
+          <Nav isMobile={width >= 992 ? false : true} isLogged={isLogged}/>
           <Switch>
             <Route exact path="/" component={HomePage}></Route>
             <Route path="/login/register/step1" component={RegisterPageStep1}></Route>
-            <Route path="/login/register/step2" component={RegisterPageStep2}></Route>
+            <Route path="/login/register/step2" component={(props) => <RegisterPageStep2 {...props} handleLoggin={this.handleLoggin} />}></Route>
             <Route path="/login/term-conditions" component={TermAndConditionsPage}></Route>
             <Route
               path="/login/recoveryPassword"
               component={RecoveryPasswordPage}
             ></Route>
-            <Route path="/login" component={LoginPage}></Route>
+            <Route path="/login" component={(props) => <LoginPage {...props} handleLoggin={this.handleLoggin} />}></Route>
             <Route
               path="/plans"
               component={PlansPage}

@@ -12,7 +12,7 @@ class LoginPage extends Component {
       <article className="container">
         <div className="login-page-global-container">
           <h1>Acceder a mi cuenta</h1>
-          <Login  history={this.props.history} location={this.props.location}/>
+          <Login  history={this.props.history} location={this.props.location} handleLoggin={this.props.handleLoggin}/>
         </div>
       </article>
     );

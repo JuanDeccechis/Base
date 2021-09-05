@@ -28,6 +28,7 @@ class PayCard extends Component {
     event.stopPropagation();
     }
     if (this.state.termAccepted) {
+      localStorage.setItem("isLogged", "true");
       this.changePath();
     }
     else {
@@ -36,6 +37,7 @@ class PayCard extends Component {
   }
 
   changePath() {
+    this.props.handleLoggin();
     let path = `/`;
     this.props.history.push(path);
   }
@@ -61,7 +63,12 @@ class PayCard extends Component {
     </Input> */}
               <div className="plan-title">
                 <span className="subtitle1">Plan: {plan.title} </span>
-                <span className="price subtitle1">USD {plan.price}</span>
+                <span className="price subtitle1">Costo mensual: USD {plan.price}</span>
+              </div>
+              <div className="login-links-container espaciado">
+              <NavLink to="/plans" activeClassName="">
+                <span>Cambiar plan</span>
+              </NavLink>
               </div>
             <Input
             name={"tarjeta"}
@@ -97,12 +104,9 @@ class PayCard extends Component {
           <p className="error-text">Debes aceptar los Términos y condiciones para registrarte exitosamente.</p>
           }
             <div className="espaciado">
-                <Button className={`principal`} disabled={!termAccepted} handleClick={this.handleSubmit} text="Acceder" />
+              <Button className={`principal`} disabled={!termAccepted} handleClick={this.handleSubmit} text="Acceder" />
             </div>
-            <NavLink to="/plans" activeClassName="">
-                <span>Elegir un plan</span>
-                </NavLink>
-            </div>
+          </div>
         </form>
         );
   }

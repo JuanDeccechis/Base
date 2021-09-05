@@ -45,6 +45,7 @@ class Login extends Component {
   }
 
   changePath() {
+    this.props.handleLoggin();
     let path = `/`;
     this.props.history.push(path);
   }
