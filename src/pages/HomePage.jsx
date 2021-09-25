@@ -8,13 +8,14 @@ class HomePage extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      posts: null
+      posts: null,
+      serverEnabled: localStorage.getItem("serverEnabled"),
     }
   }
 
   componentDidMount() {
-    const { posts } = this.state; //this will be uploaded by reducer / sagas / api, when the user was authenticated
-    if (!posts)
+    const { posts, serverEnabled } = this.state; //this will be uploaded by reducer / sagas / api, when the user was authenticated
+    if (!posts && serverEnabled)
       this.getDataFromApi("posts");
   
 }
@@ -49,8 +50,8 @@ async getDataFromApi(path) {
 }
 
   render() {
-    const { posts } = this.state;
-    if (!posts) {
+    const { posts, serverEnabled } = this.state;
+    if (!posts && serverEnabled) {
       return <Loader
               type="TailSpin"
               color="#2020bf"
@@ -61,7 +62,7 @@ async getDataFromApi(path) {
   } else {
     return <article className="container">
         <p className="example-text">
-          {posts[0].name}
+          {posts && serverEnabled ? posts[0].name : 'Datos sin servicios'}
         </p>
         <p className="example-text">
             Lorem ipsum dolor sit amet consectetur adipisicing elit. Inventore sed provident cupiditate vitae commodi quae, earum autem quaerat! Praesentium quis distinctio incidunt fugit, facilis odio illo quam error culpa nemo!
