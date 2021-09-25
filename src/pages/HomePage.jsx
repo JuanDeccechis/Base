@@ -9,14 +9,17 @@ class HomePage extends Component {
     super(props);
     this.state = {
       posts: null,
-      serverEnabled: localStorage.getItem("serverEnabled"),
+      serverEnabled: localStorage.getItem("serverEnabled") === "true",
     }
   }
 
   componentDidMount() {
     const { posts, serverEnabled } = this.state; //this will be uploaded by reducer / sagas / api, when the user was authenticated
-    if (!posts && serverEnabled)
+    if (!posts && serverEnabled){
+      console.log(serverEnabled);
+      console.log("llama a posts");
       this.getDataFromApi("posts");
+    }
   
 }
 
