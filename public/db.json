@@ -1,0 +1,16 @@
+{
+  "people": [
+      {
+          "id": 0,
+          "name": "john"
+      }
+  ],
+  "posts": [
+    {
+      "id": 0,
+      "id_user": 0,
+      "name": "work",
+      "views": 55
+    }
+  ]
+}

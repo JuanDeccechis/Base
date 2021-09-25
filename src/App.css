@@ -251,6 +251,15 @@ button.principal:hover:enabled {
   list-style-type: none;
 }
 
+.loader{
+  height: calc(100% - 50px);
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: var(--background-color);
+}
+
 @media screen and (min-width: 992px) {
   h1 {
     /* Headline 1 */
@@ -284,5 +293,10 @@ button.principal:hover:enabled {
   
   .plans li{
     flex: 0 0 350px; /*grow, shrink, basis*/
+  }
+
+  .loader {
+    position: absolute;
+    top: 56px;
   }
 }
